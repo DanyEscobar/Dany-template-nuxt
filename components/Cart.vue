@@ -61,7 +61,11 @@
         </table>
       </div>
     </div>
-    <div class="version-responsive">pasdsd</div>
+    <div class="version-responsive">
+      <div class="cart-responsive">
+        <div class="cart-item"></div>
+      </div>
+    </div>
   </div>
 </template>
 
