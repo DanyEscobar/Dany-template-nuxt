@@ -1,0 +1,187 @@
+/*---------cart page and wishlist page------------*/
+.shopping-cart .shop_table, .wishlist-page .shop_table {
+  border: 1px solid #a8a8a8;
+  border-collapse: collapse;
+  margin: 0 0 35px;
+}
+
+.shopping-cart .shop_table thead th, .shopping-cart .shop_table thead td, .wishlist-page .shop_table thead th, .wishlist-page .shop_table thead td {
+  color: #202020;
+  font-family: 'Montserrat Semi Bold';
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 18px 0;
+  color: #000;
+}
+
+.shopping-cart .shop_table thead th.product-name, .shopping-cart .shop_table thead td.product-name, .wishlist-page .shop_table thead th.product-name, .wishlist-page .shop_table thead td.product-name {
+  padding-left: 202px !important;
+}
+
+.shopping-cart .shop_table tr, .wishlist-page .shop_table tr {
+  border-bottom: 1px solid #a8a8a8;
+}
+
+.shopping-cart .shop_table td, .shopping-cart .shop_table th, .shopping-cart .shop_table td, .wishlist-page .shop_table td, .wishlist-page .shop_table th, .wishlist-page .shop_table td {
+  border: 0px solid;
+}
+
+.shopping-cart tbody .cart_item td, .wishlist-page tbody .cart_item td {
+  vertical-align: middle;
+}
+
+.shopping-cart tbody .cart_item td.product-remove, .wishlist-page tbody .cart_item td.product-remove {
+  text-align: center;
+  width: 9%;
+}
+
+.shopping-cart tbody .cart_item td.product-thumbnail, .wishlist-page tbody .cart_item td.product-thumbnail {
+  width: 8.5%;
+}
+
+.shopping-cart tbody .cart_item td.product-thumbnail a, .wishlist-page tbody .cart_item td.product-thumbnail a {
+  display: inline-block;
+}
+
+.shopping-cart tbody .cart_item td.product-thumbnail img, .wishlist-page tbody .cart_item td.product-thumbnail img {
+  height: 93px;
+  width: 74px;
+  margin: 35px 0 !important;
+}
+
+.shopping-cart tbody .cart_item td.product-info h2, .wishlist-page tbody .cart_item td.product-info h2 {
+  font-size: 13px !important;
+  margin-top: 0px;
+}
+
+.shopping-cart tbody .cart_item td.product-info h4, .wishlist-page tbody .cart_item td.product-info h4 {
+  font-size: 12px;
+  color: #878787;
+}
+
+.wishlist-page {
+  margin-bottom: 92px;
+}
+
+.wishlist-page tbody .cart_item td.product-desc {
+  width: 27%;
+  padding-right: 30px;
+}
+
+.wishlist-page tbody .cart_item td.product-number {
+  width: 13%;
+}
+
+.wishlist-page tbody .cart_item td.product-stock span {
+  font-size: 13px;
+  color: #5f5f5f;
+  font-family: 'Montserrat Light';
+}
+
+.wishlist-page tbody .cart_item td .btn-add-cart {
+  display: inline-block;
+  padding: 8px 17px;
+}
+
+.wishlist-page tbody .cart_item td .btn-add-cart span {
+  display: inline-block;
+}
+
+.shopping-cart {
+  margin-bottom: 80px;
+}
+
+.shopping-cart tbody .cart_item td.product-info {
+  width: 25.7%;
+}
+
+.shopping-cart tbody .cart_item td.product-quantity {
+  width: 14.8%;
+}
+
+.shopping-cart tbody .cart_item td.product-quantity input {
+  width: 63px;
+  padding: 13px 0 11px 15px;
+  border: 1px solid #a8a8a8;
+}
+
+.shopping-cart tbody .cart_item td.product-number {
+  width: 17%;
+}
+
+.shopping-cart tbody .cart_item td.product-price {
+  width: 14%;
+}
+
+.shopping-cart tbody .cart_item td.product-subtotal {
+  width: 11%;
+}
+
+.shopping-cart tbody .cart_item td.product-subtotal span {
+  color: #202020;
+  font-family: "Montserrat", sans-serif;
+}
+
+.shopping-cart .refresh-shoping {
+  text-align: right;
+  margin-bottom: 102px;
+}
+
+.shopping-cart .refresh-shoping a {
+  margin-left: 24px;
+}
+
+.shopping-cart .calculate h5, .shopping-cart .cupon-code h5 {
+  margin-bottom: 5px;
+}
+
+.shopping-cart .cart-total h5 {
+  margin-bottom: 19px;
+}
+
+.shopping-cart .cart-total > table {
+  margin-top: 20px;
+}
+
+.shopping-cart .cart-total > table th, .shopping-cart .cart-total > table td {
+  font-family: "Raleway",sans-serif;
+  font-weight: 600;
+}
+
+.shopping-cart .calculate h4, .shopping-cart .cupon-code h4 {
+  font-size: 11px;
+  color: #292929;
+  letter-spacing: 1px;
+}
+
+.shopping-cart .calculate p, .shopping-cart .cupon-code p {
+  margin-bottom: 43px;
+}
+
+.shopping-cart .zip, .shopping-cart .cupon {
+  padding: 10px !important;
+}
+
+.shopping-cart .cart-total table {
+  border: 1px solid #a8a8a8;
+  margin-bottom: 23px;
+}
+
+.shopping-cart .cart-total table th, .shopping-cart .cart-total table td {
+  color: #272727;
+/*  font-family: "Raleway Medium";*/
+  font-size: 11px;
+  padding: 22px 30px;
+  text-transform: uppercase;
+}
+
+.shopping-cart .cart-total table span {
+  text-transform: none !important;
+  color: #1a1a1a;
+}
+
+.shopping-cart .cart-total table span.amount {
+  color: #000000;
+  font-size: 14px;
+}

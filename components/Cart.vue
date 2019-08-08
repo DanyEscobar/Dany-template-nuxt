@@ -14,14 +14,14 @@
           </thead>
           <tbody>
             <tr>
-              <td class="remove-product">
+              <td class="product-remove">
                 <a href="#" class="remove" title="Quitar este producto">
-                  <img src="C:/Users/MSI-DANY/Dany-template-nuxt/assets/images/remove.png" alt="Quitar producto">
+                  <img src="~/assets/images/remove.png" alt="Quitar producto">
                 </a>
               </td>
               <td class="producto-image">
                 <a href="#">
-                  <img src="" alt="">
+                  <img src="~/assets/images/item-1.jpg" alt="">
                 </a>
               </td>
               <td class="product-info">
@@ -30,7 +30,67 @@
               </td>
               <td class="product-quantity">
                 <div>
-                  <input type="number" min="0" max="100" />
+                  <input type="number" step="1" min="0" max="99" name="cart" value="1" title="Qty" class="input-field"/>
+                </div>
+              </td>
+              <td class="product-id">
+                <span>AFN - 924222122</span>
+              </td>
+              <td class="product-price">
+                <span>$49</span>
+              </td>
+              <td class="product-subtotal">
+                <span>$49</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="product-remove">
+                <a href="#" class="remove" title="Quitar este producto">
+                  <img src="~/assets/images/remove.png" alt="Quitar producto">
+                </a>
+              </td>
+              <td class="producto-image">
+                <a href="#">
+                  <img src="~/assets/images/item-1.jpg" alt="">
+                </a>
+              </td>
+              <td class="product-info">
+                <h2>Grey Striped Shirt</h2>
+                <h4>T-shirt</h4>
+              </td>
+              <td class="product-quantity">
+                <div>
+                  <input type="number" step="1" min="0" max="99" name="cart" value="1" title="Qty" class="input-field"/>
+                </div>
+              </td>
+              <td class="product-id">
+                <span>AFN - 924222122</span>
+              </td>
+              <td class="product-price">
+                <span>$49</span>
+              </td>
+              <td class="product-subtotal">
+                <span>$49</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="product-remove">
+                <a href="#" class="remove" title="Quitar este producto">
+                  <img src="~/assets/images/remove.png" alt="Quitar producto">
+                </a>
+              </td>
+              <td class="producto-image">
+                <a href="#">
+                  <img src="~/assets/images/item-1.jpg" alt="">
+                </a>
+              </td>
+              <td class="product-info">
+                <h2>Grey Striped Shirt</h2>
+                <h4>T-shirt</h4>
+              </td>
+              <td class="product-quantity">
+                <div>
+                  <input type="number" step="1" min="0" max="99" name="cart" value="1" title="Qty" class="input-field"/>
                 </div>
               </td>
               <td class="product-id">
@@ -57,6 +117,7 @@ export default {}
 <style scoped>
 .cart {
   margin-bottom: 80px;
+  padding: 40px;
 }
 .container {
   padding: 0;
@@ -70,7 +131,7 @@ export default {}
   margin-right: -15px;
   margin-left: -15px;
 }
-.cart .shop-table tr {
+tr {
   border: 1px solid #a8a8a8;
   border-collapse: collapse;
   margin: 0 0 35px;
@@ -83,17 +144,16 @@ table {
   border-spacing: 0;
   border-collapse: collapse;
   display: table;
+  margin: 0 0 35px;
 }
-th, td {
-  border: 0px solid;
-}
-thead th {
+thead, th {
   font-family: 'Montserrat Semi Bold';
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 2px;
   padding: 18px 0;
   color: #000;
+  text-align: left;
 } 
 
 .product-name {
@@ -101,16 +161,27 @@ thead th {
   padding: 18px 0px 18px 172px;
 }
 
+.product-remove {
+  font: 14px;
+  padding: 10px 20px !important;
+  
+}
+img {
+  height: auto;
+  max-width: 100%;
+  margin: 35px 0px;
+}
+span {
+  font-size: 12px;
+  color: #404040;
+  font-family: 'Montserrat Light';
+  margin-left: 10px;
+}
+
 
 * {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-div {
-  display: block;
 }
 body {
   background: #ffffff;
@@ -122,7 +193,7 @@ body {
   color: #454545;
 }
 h2 {
-  font-size: 13px !important;
+  font-size: 13px;
   margin-top: 0px;
   font-family: "Raleway", sans-serif;
   font-size: 15px;
@@ -138,45 +209,5 @@ h2 {
   display: block;
 }
 
-/* * {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  border: 0px solid;
-}
-thead,
-th {
-  border-collapse: collapse;
-  color: #202020;
-  font-family: 'Montserrat Semi Bold';
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  padding: 18px 0;
-  color: #000;
-  border: 0px solid;
-}
-th {
-  text-align: left;
-}
-th,
-td {
-  border: 1px solid #a8a8a8;
-  padding: 0;
-}
-th {
-  display: table-cell;
-  vertical-align: inherit;
-  font-weight: bold;
-  text-align: -internal-center;
-}
-.cart {
-  padding: 20px;
-}
-.cart thead th.product-name {
-  padding-left: 172px !important;
-} */
 
 </style>
