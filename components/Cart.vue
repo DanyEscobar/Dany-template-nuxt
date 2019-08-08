@@ -1,141 +1,150 @@
 <template>
   <div class="cart">
-    <div class="container">
+    <div class="container responsive">
       <div class="row">
         <table class="shop-table">
           <thead>
             <tr>
-              <th colspan="3" class="product-name">PRODUCT</th>
-              <th class="product-quantity">QUANTITY</th>
-              <th class="product-id">ID NUMBER</th>
-              <th class="product-price">PRICE</th>
-              <th class="product-subtotal">SUBTOTAL</th>
+              <th colspan="3" class="product-name">Product</th>
+              <th class="product-quantity">Quantity</th>
+              <th class="product-id">Id number</th>
+              <th class="product-price">Price</th>
+              <th class="product-subtotal">Subtotal</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr class="cart-item" v-for="(item, index) in data" :key="index">
               <td class="product-remove">
-                <a href="#" class="remove" title="Quitar este producto">
-                  <img src="~/assets/images/remove.png" alt="Quitar producto">
+                <a
+                  href="#"
+                  class="remove"
+                  title="Quitar este producto"
+                  @click="removeProduct(index)"
+                >
+                  <img :src="item.remove" alt="Quitar producto" />
                 </a>
               </td>
-              <td class="producto-image">
+              <td class="product-image">
                 <a href="#">
-                  <img src="~/assets/images/item-1.jpg" alt="">
+                  <img :src="item.thumbnail" />
                 </a>
               </td>
               <td class="product-info">
-                <h2>Grey Striped Shirt</h2>
-                <h4>T-shirt</h4>
+                <h2>{{item.name}}</h2>
+                <h4>{{item.info}}</h4>
               </td>
               <td class="product-quantity">
-                <div>
-                  <input type="number" step="1" min="0" max="99" name="cart" value="1" title="Qty" class="input-field"/>
+                <div class="input-quantity">
+                  <input
+                    type="number"
+                    step="1"
+                    min="0"
+                    max="99"
+                    name="cart"
+                    :value="item.quantity"
+                    title="Qty"
+                    class="input-field"
+                  />
                 </div>
               </td>
               <td class="product-id">
-                <span>AFN - 924222122</span>
+                <span>{{item.id}}</span>
               </td>
               <td class="product-price">
-                <span>$49</span>
+                <span>{{item.price}}</span>
               </td>
               <td class="product-subtotal">
-                <span>$49</span>
-              </td>
-            </tr>
-            <tr>
-              <td class="product-remove">
-                <a href="#" class="remove" title="Quitar este producto">
-                  <img src="~/assets/images/remove.png" alt="Quitar producto">
-                </a>
-              </td>
-              <td class="producto-image">
-                <a href="#">
-                  <img src="~/assets/images/item-1.jpg" alt="">
-                </a>
-              </td>
-              <td class="product-info">
-                <h2>Grey Striped Shirt</h2>
-                <h4>T-shirt</h4>
-              </td>
-              <td class="product-quantity">
-                <div>
-                  <input type="number" step="1" min="0" max="99" name="cart" value="1" title="Qty" class="input-field"/>
-                </div>
-              </td>
-              <td class="product-id">
-                <span>AFN - 924222122</span>
-              </td>
-              <td class="product-price">
-                <span>$49</span>
-              </td>
-              <td class="product-subtotal">
-                <span>$49</span>
-              </td>
-            </tr>
-            <tr>
-              <td class="product-remove">
-                <a href="#" class="remove" title="Quitar este producto">
-                  <img src="~/assets/images/remove.png" alt="Quitar producto">
-                </a>
-              </td>
-              <td class="producto-image">
-                <a href="#">
-                  <img src="~/assets/images/item-1.jpg" alt="">
-                </a>
-              </td>
-              <td class="product-info">
-                <h2>Grey Striped Shirt</h2>
-                <h4>T-shirt</h4>
-              </td>
-              <td class="product-quantity">
-                <div>
-                  <input type="number" step="1" min="0" max="99" name="cart" value="1" title="Qty" class="input-field"/>
-                </div>
-              </td>
-              <td class="product-id">
-                <span>AFN - 924222122</span>
-              </td>
-              <td class="product-price">
-                <span>$49</span>
-              </td>
-              <td class="product-subtotal">
-                <span>$49</span>
+                <span>{{item.subtotal}}</span>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
+    <div class="version-responsive">pasdsd</div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      data: [
+        {
+          remove: require('~/assets/images/remove.png'),
+          thumbnail: require('~/assets/images/item-1.jpg'),
+          name: 'Grey Striped Shirt1',
+          info: 'T-shir',
+          quantity: 1,
+          id: 'AFN - 924222122',
+          price: '$49',
+          subtotal: '$49'
+        },
+        {
+          remove: require('~/assets/images/remove.png'),
+          thumbnail: require('~/assets/images/item-1.jpg'),
+          name: 'Grey Striped Shirt2',
+          info: 'T-shir',
+          quantity: 2,
+          id: 'AFN - 924222122',
+          price: '$48',
+          subtotal: '$48'
+        },
+        {
+          remove: require('~/assets/images/remove.png'),
+          thumbnail: require('~/assets/images/item-1.jpg'),
+          name: 'Grey Striped Shirt3',
+          info: 'T-shir',
+          quantity: 1,
+          id: 'AFN - 924222122',
+          price: '$48',
+          subtotal: '$48'
+        }
+      ]
+    }
+  },
+  methods: {
+    removeProduct(i) {
+      this.data.splice(i, 1)
+    }
+  }
+}
 </script>
 
 <style scoped>
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .cart {
   margin-bottom: 80px;
   padding: 40px;
 }
+
 .container {
   padding: 0;
-  width: 750px;
+  max-width: 1200px;
+  width: 100%;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
 }
+
 .row {
   margin-right: -15px;
   margin-left: -15px;
+  font: 14px 'Open Sans', sans-serif;
+  color: #454545;
 }
+
 tr {
   border: 1px solid #a8a8a8;
   border-collapse: collapse;
-  margin: 0 0 35px;
+  margin: 18px 0px;
 }
+
 table {
   margin: 0 0 1.5em;
   width: 100%;
@@ -146,58 +155,67 @@ table {
   display: table;
   margin: 0 0 35px;
 }
-thead, th {
-  font-family: 'Montserrat Semi Bold';
-  font-size: 11px;
+
+.cart .shop-table thead,
+th {
+  font-family: 'Monserrat', sans-serif;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 2px;
-  padding: 18px 0;
+  padding: 18px 0px;
   color: #000;
   text-align: left;
-} 
-
-.product-name {
-  color: #000000;
-  padding: 18px 0px 18px 172px;
+  font-weight: bold;
 }
 
-.product-remove {
-  font: 14px;
-  padding: 10px 20px !important;
-  
-}
-img {
-  height: auto;
-  max-width: 100%;
-  margin: 35px 0px;
-}
-span {
-  font-size: 12px;
-  color: #404040;
-  font-family: 'Montserrat Light';
-  margin-left: 10px;
-}
-
-
-* {
-  margin: 0;
-  padding: 0;
-}
-body {
-  background: #ffffff;
-  word-wrap: break-word;
-  overflow-x: hidden;
-  font-family: "Open Sans", sans-serif;
-  font-size: 14px;
-  line-height: 1.45em;
+td.product-remove {
+  padding: 10px 20px;
+  font: 14px 'Open Sans', sans-serif;
   color: #454545;
+  text-align: center;
+  width: 9%;
+}
+td.product-remove a {
+  /* width: 100%; */
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+td.product-image {
+  width: 100px;
+  /* width: 9.5%; */
+  /* height: 100%; */
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+td.product-image a {
+  /* width: 100%; */
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+td.product-image img {
+  width: 74px;
+  margin: 35px 0;
+}
+
+th.product-name {
+  color: #000000;
+  /* padding: 18px 0px 18px 172px; */
+  padding-left: 20%;
+}
+
+td.product-info {
+  width: 25.7%;
+  color: #454545;
+  font: 14px 'Open Sans', sans-serif;
 }
 h2 {
   font-size: 13px;
   margin-top: 0px;
-  font-family: "Raleway", sans-serif;
-  font-size: 15px;
-  margin: 21px 0 11px;
+  font-family: 'Raleway', sans-serif;
+  margin: 0px 0px 11px;
   color: #292929;
   letter-spacing: 1px;
   text-transform: capitalize;
@@ -208,6 +226,79 @@ h2 {
   margin-inline-end: 0px;
   display: block;
 }
+h4 {
+  font-size: 11px;
+  color: #878787;
+  letter-spacing: 1px;
+  font: 12px 'Raleway', sans-serif;
+}
 
+td.product-quantity {
+  width: 14.8%;
+  color: #454545;
+  font: 14px 'Open Sans', sans-serif;
+}
+td.product-quantity input {
+  width: 63px;
+  padding: 13px 0 11px 15px;
+  border: 1px solid #a8a8a8;
+  margin: 15px 0px 30px;
+  font: 14px 'Open Sans', sans-serif;
+}
 
+td.product-id {
+  width: 17%;
+  font: 14px 'Open Sans', sans-serif;
+  color: #454545;
+}
+
+td.product-price {
+  width: 14%;
+  font: 14px 'Open Sans', sans-serif;
+  color: #454545;
+}
+span {
+  font: 14px 'Open Sans', sans-serif;
+  color: #454545;
+}
+
+td.product-subtotal {
+  width: 11%;
+  font: 14px 'Open Sans', sans-serif;
+}
+td.product-subtotal span {
+  color: #202020;
+  font: 14px 'Open Sans', sans-serif;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+body {
+  background: #ffffff;
+  word-wrap: break-word;
+  overflow-x: hidden;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.45em;
+  color: #454545;
+}
+.version-responsive {
+  display: none;
+}
+@media (max-width: 1200px) {
+  .container {
+    max-width: 1170px;
+  }
+}
+@media (max-width: 730px) {
+  .responsive {
+    display: none;
+  }
+  .version-responsive {
+    display: initial;
+  }
+}
 </style>
