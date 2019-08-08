@@ -63,7 +63,10 @@
     </div>
     <div class="version-responsive">
       <div class="cart-responsive">
-        <div class="cart-item"></div>
+        <div class="cart-item">
+          <div class></div>
+          <div></div>
+        </div>
       </div>
     </div>
   </div>
