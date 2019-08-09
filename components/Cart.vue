@@ -1,75 +1,104 @@
 <template>
-  <div class="cart">
-    <div class="container responsive">
-      <div class="row">
-        <table class="shop-table">
-          <thead>
-            <tr>
-              <th colspan="3" class="product-name">Product</th>
-              <th class="product-quantity">Quantity</th>
-              <th class="product-id">Id number</th>
-              <th class="product-price">Price</th>
-              <th class="product-subtotal">Subtotal</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="cart-item" v-for="(item, index) in data" :key="index">
-              <td class="product-remove">
-                <a
-                  href="#"
-                  class="remove"
-                  title="Quitar este producto"
-                  @click="removeProduct(index)"
-                >
-                  <img :src="item.remove" alt="Quitar producto" />
-                </a>
-              </td>
-              <td class="product-image">
-                <a href="#">
-                  <img :src="item.thumbnail" />
-                </a>
-              </td>
-              <td class="product-info">
-                <h2>{{item.name}}</h2>
-                <h4>{{item.info}}</h4>
-              </td>
-              <td class="product-quantity">
-                <div class="input-quantity">
-                  <input
-                    type="number"
-                    step="1"
-                    min="0"
-                    max="99"
-                    name="cart"
-                    :value="item.quantity"
-                    title="Qty"
-                    class="input-field"
-                  />
-                </div>
-              </td>
-              <td class="product-id">
-                <span>{{item.id}}</span>
-              </td>
-              <td class="product-price">
-                <span>{{item.price}}</span>
-              </td>
-              <td class="product-subtotal">
-                <span>{{item.subtotal}}</span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+  <section>
+    <div class="cart">
+      <div class="container responsive">
+        <div class="row">
+          <table class="shop-table">
+            <thead>
+              <tr>
+                <th colspan="3" class="product-name">Product</th>
+                <th class="product-quantity">Quantity</th>
+                <th class="product-id">Id number</th>
+                <th class="product-price">Price</th>
+                <th class="product-subtotal">Subtotal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="cart-item" v-for="(item, index) in data" :key="index">
+                <td class="product-remove">
+                  <a
+                    href="#"
+                    class="remove"
+                    title="Quitar este producto"
+                    @click="removeProduct(index)"
+                  >
+                    <img :src="item.remove" alt="Quitar producto" />
+                  </a>
+                </td>
+                <td class="product-image">
+                  <a href="#">
+                    <img :src="item.thumbnail" />
+                  </a>
+                </td>
+                <td class="product-info">
+                  <h2>{{item.name}}</h2>
+                  <h4>{{item.info}}</h4>
+                </td>
+                <td class="product-quantity">
+                  <div class="input-quantity">
+                    <input
+                      type="number"
+                      step="1"
+                      min="0"
+                      max="99"
+                      name="cart"
+                      :value="item.quantity"
+                      title="Qty"
+                      class="input-field"
+                    />
+                  </div>
+                </td>
+                <td class="product-id">
+                  <span>{{item.id}}</span>
+                </td>
+                <td class="product-price">
+                  <span>{{item.price}}</span>
+                </td>
+                <td class="product-subtotal">
+                  <span>{{item.subtotal}}</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
-    <div class="version-responsive">
-      <div class="cart-responsive">
-        <div class="cart-item">
-          <div class></div>
-          <div></div>
+      <div class="version-responsive">
+        <div class="cart-responsive">
+          <h5 class="cart-title">
+            Your shopping cart
+            <span>({{data.length}} items)</span>
+          </h5>
+          <br />
+          <div class="product-cart" v-for="(item, index) in data" :key="index">
+            <div class="cart-product-image">
+              <a href="#" class>
+                <img class="image-responsive" :src="item.thumbnail" />
+              </a>
+            </div>
+            <div class="cart-product-info">
+              <h5>{{item.name}}</h5>
+              <span>
+                <h6>{{item.info}}</h6>
+              </span>
+              <div class="cart-product-price">
+                <del>$80</del>
+                "{{item.price}}"
+              </div>
+              <div class="cart-product-delete">
+                <button class="product-delete" @click="removeProduct(index)">Delete</button>
+              </div>
+            </div>
+          </div>
+          <div class="order-total">
+            <h5>Order total</h5>
+          </div>
+          <div class="checkout">
+            <button class="cart-checkout">Checkout</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -119,6 +148,7 @@ export default {
 </script>
 
 <style scoped>
+/* cart */
 * {
   margin: 0;
   padding: 0;
@@ -307,5 +337,56 @@ body {
   .version-responsive {
     display: initial;
   }
+}
+/* Cart Responsive */
+.product-cart {
+  display: flex;
+  /* display: inline-grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-template-rows: auto; */
+}
+.cart-product-image {
+}
+.cart-product-info {
+}
+h5 {
+  color: #292929;
+  font-size: 13px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+}
+.product-delete {
+  color: #000;
+  margin-top: 10px;
+}
+button {
+  font-weight: lighter;
+  display: inline-block;
+  margin-top: 10px;
+  margin: 0 8px;
+  padding: 10px 20px !important;
+  background: none;
+  border-radius: 0px;
+  border: 1px solid #a8a8a8;
+  font-family: 'Montserrat Light';
+  font-size: 13px;
+  text-align: center;
+  background-color: transparent;
+}
+.checkout {
+  color: #000;
+  float: right;
+  margin-top: 15px;
+}
+button:hover {
+  /* content: ''; */
+  /* position: absolute; */
+  width: auto;
+  height: auto;
+  background-color: #fda341;
+  color: #ffffff;
+  border: 1px solid #fda341;
+  /* transform: scale(0); */
+  transition: transform 0.35s;
 }
 </style>
