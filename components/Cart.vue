@@ -93,6 +93,9 @@
             <h5>Order total</h5>
           </div>
           <div class="checkout">
+            <h4 class="total-price">
+              <span class="amount">$166</span>
+            </h4>
             <button class="cart-checkout">Checkout</button>
           </div>
         </div>
@@ -344,10 +347,22 @@ body {
   /* display: inline-grid;
   grid-template-columns: repeat(2, 50%);
   grid-template-rows: auto; */
+  /* display: block; */
+  text-align: left;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 40px;
+  overflow: hidden;
+  /* display: block; */
+  text-align: left;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 40px;
 }
 .cart-product-image {
 }
 .cart-product-info {
+  float: right;
+  width: 60%;
+  text-align: left;
 }
 h5 {
   color: #292929;
@@ -373,11 +388,6 @@ button {
   text-align: center;
   background-color: transparent;
 }
-.checkout {
-  color: #000;
-  float: right;
-  margin-top: 15px;
-}
 button:hover {
   /* content: ''; */
   /* position: absolute; */
@@ -388,5 +398,30 @@ button:hover {
   border: 1px solid #fda341;
   /* transform: scale(0); */
   transition: transform 0.35s;
+}
+.cart-responsive {
+  min-width: 320px;
+  height: auto;
+  /* position: absolute; */
+  background-color: #fff;
+  padding: 20px;
+  padding-top: 20px;
+  /* box-shadow: 2px 5px 10px #ddd; */
+  top: 50px;
+  right: 50px;
+}
+.checkout {
+  display: flex;
+  justify-content: space-between;
+}
+.cart-checkout {
+  color: #000;
+  float: right;
+  margin-top: 15px;
+}
+.total-price {
+  float: left;
+  color: #000;
+  font-size: 14px;
 }
 </style>
