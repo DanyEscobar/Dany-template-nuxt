@@ -469,7 +469,7 @@ button:hover {
   margin-top: -15px;
 }
 .total-price {
-    width: auto;
+  width: auto;
   height: auto;
   color: #000;
   font-size: 14px;
