@@ -27,7 +27,7 @@
                 </td>
                 <td class="product-image">
                   <a href="#">
-                    <img :src="item.thumbnail" />
+                    <img :src="item.thumbnail" class="image-nor"/>
                   </a>
                 </td>
                 <td class="product-info">
@@ -69,9 +69,20 @@
             <span>({{data.length}} items)</span>
           </h5>
           <br />
+          <div class="table">
           <div class="product-cart" v-for="(item, index) in data" :key="index">
+            <div class="cart-product-remove">
+              <a
+                href="#"
+                class="cart-remove"
+                title="Quitar este producto"
+                @click="removeProduct(index)"
+              >
+                <img class="image-responsive-remove" :src="item.remove" alt="Quitar producto" />
+              </a>
+            </div>
             <div class="cart-product-image">
-              <a href="#" class>
+              <a href="#" class="a-responsive">
                 <img class="image-responsive" :src="item.thumbnail" />
               </a>
             </div>
@@ -97,6 +108,7 @@
               <span class="amount">$166</span>
             </h4>
             <button class="cart-checkout">Checkout</button>
+          </div>
           </div>
         </div>
       </div>
@@ -311,7 +323,7 @@ td.product-subtotal span {
   font: 14px 'Open Sans', sans-serif;
 }
 
-img {
+.imgage-nor {
   height: auto;
   max-width: 100%;
 }
@@ -341,28 +353,33 @@ body {
     display: initial;
   }
 }
+
+
 /* Cart Responsive */
 .product-cart {
   display: flex;
-  /* display: inline-grid;
+  /*  display: inline-grid;
   grid-template-columns: repeat(2, 50%);
   grid-template-rows: auto; */
-  /* display: block; */
-  text-align: left;
-  transition: all 0.3s ease-in-out;
-  margin-bottom: 40px;
-  overflow: hidden;
-  /* display: block; */
-  text-align: left;
-  transition: all 0.3s ease-in-out;
-  margin-bottom: 40px;
+  border-bottom: 1px solid #999999;
+  padding: 10px;
+  width: 100%;
 }
 .cart-product-image {
+  flex: 1;
+  width: 33%;
 }
+.a-responsive {
+  width: 100%;
+  height: auto;
+  display: flex;
+}
+
 .cart-product-info {
   float: right;
-  width: 60%;
+  width: 34%;
   text-align: left;
+  flex: 1;
 }
 h5 {
   color: #292929;
@@ -379,7 +396,7 @@ button {
   display: inline-block;
   margin-top: 10px;
   margin: 0 8px;
-  padding: 10px 20px !important;
+  padding: 10px 20px;
   background: none;
   border-radius: 0px;
   border: 1px solid #a8a8a8;
@@ -389,14 +406,12 @@ button {
   background-color: transparent;
 }
 button:hover {
-  /* content: ''; */
-  /* position: absolute; */
   width: auto;
   height: auto;
   background-color: #fda341;
   color: #ffffff;
   border: 1px solid #fda341;
-  /* transform: scale(0); */
+  transform: scale(0.9999);
   transition: transform 0.35s;
 }
 .cart-responsive {
@@ -409,6 +424,10 @@ button:hover {
   /* box-shadow: 2px 5px 10px #ddd; */
   top: 50px;
   right: 50px;
+}
+.table {
+  border: 1px solid #a8a8a8;
+  border-collapse: collapse;
 }
 .checkout {
   display: flex;
@@ -424,4 +443,20 @@ button:hover {
   color: #000;
   font-size: 14px;
 }
+.cart-product-remove {
+  text-align: center;
+  width: 10%;
+  display: flex;
+  justify-content: center;
+}
+.cart-remove  {
+  justify-content: center;
+  display: flex;
+  align-items: center; 
+}
+.image-responsive-remove{
+  align-items: center;
+  align-content: center;
+}
+
 </style>
