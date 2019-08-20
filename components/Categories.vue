@@ -1,5 +1,8 @@
 <template>
   <section class="container">
+    <div class="modal" v-if="false">
+      <p>imagen</p>
+    </div>
     <div class="categories-container">
       <h3 class="categories-title">Categories</h3>
       <div class="man" v-for="(nameCat, index) in dataName" :key="index">
@@ -81,12 +84,9 @@ export default {
 </script>
 
 <style scoped>
-* {
-  margin: 0;
-  padding: 0;
-}
 .container {
-  width: 1400;
+  max-width: 1400px;
+  width: 100%;
   margin-bottom: 80px;
   padding: 0px;
   padding-right: 15px;
@@ -95,6 +95,15 @@ export default {
   margin-left: auto;
   display: grid;
   grid-template-columns: 25% 1fr;
+}
+.modal {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(64, 64, 64, 0.667);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
 }
 @media (min-width: 1200px) {
   .container {

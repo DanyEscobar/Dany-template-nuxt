@@ -164,11 +164,6 @@ export default {
 
 <style scoped>
 /* cart */
-* {
-  margin: 0;
-  padding: 0;
-}
-
 .cart {
   margin-bottom: 80px;
   padding: 40px;
@@ -329,8 +324,8 @@ td.product-subtotal span {
 
 body {
   background: #ffffff;
-  word-wrap: break-word;
-  overflow-x: hidden;
+  /* word-wrap: break-word; */
+  /* overflow-x: hidden; */
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   line-height: 1.45em;

@@ -9,9 +9,12 @@
 import Cart from '../components/Cart'
 import Categories from '../components/Categories'
 export default {
-  components: { Cart, Categories },
+  components: { Cart, Categories }
 }
 </script>
 
 <style scoped>
+section {
+  /* position: relative; */
+}
 </style>

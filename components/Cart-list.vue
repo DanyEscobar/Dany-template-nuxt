@@ -81,7 +81,6 @@ export default {
   components: { CartItemList },
   data() {
     return {
-      // mostrar: false,
       data1: [
         {
           thumbnail: require('~/assets/images/01.jpg'),
@@ -137,7 +136,8 @@ export default {
           price: '$48',
           subtotal: '$48'
         }
-      ]
+      ],
+      mostrar: false
     }
   },
   methods: {
@@ -145,8 +145,8 @@ export default {
       // this.data.push(i);
       // this.$cart.data.push(i);
     },
-    mostrarVista() {
-      this.$emit('mostrar = false')
+    mostrarVista(m) {
+      this.mostrar != false
     }
   }
 }
