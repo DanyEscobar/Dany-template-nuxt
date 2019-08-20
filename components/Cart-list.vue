@@ -10,7 +10,7 @@
             <ul>
               <li>
                 <a href="#">
-                  <i class="fa fa-align-justify"></i>
+                  <i class="fa fa-align-justify" @click="mostrarVista()"></i>
                 </a>
               </li>
               <li class="active">
@@ -81,6 +81,7 @@ export default {
   components: { CartItemList },
   data() {
     return {
+      // mostrar: false,
       data1: [
         {
           thumbnail: require('~/assets/images/01.jpg'),
@@ -143,6 +144,9 @@ export default {
     addProduct(i) {
       // this.data.push(i);
       // this.$cart.data.push(i);
+    },
+    mostrarVista() {
+      this.$emit('mostrar = false')
     }
   }
 }

@@ -153,10 +153,11 @@ export default {
 .single-item-list .cart-product-image {
   padding: 0px 12px 0px 0px;
   width: 33.33333333%;
+  height: inherit;
 }
 .single-item-list .cart-product-image .image-responsive {
   width: 100%;
-  height: auto;
+  height: inherit;
 }
 
 .single-item-list .product-info {
