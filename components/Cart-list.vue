@@ -8,9 +8,15 @@
         <div class="right-content">
           <div class="grid-list">
             <ul>
-              <li><a href="#"><i class="fa fa-align-justify"></i></a>
+              <li>
+                <a href="#">
+                  <i class="fa fa-align-justify"></i>
+                </a>
               </li>
-              <li class="active"><a href="#" class="active"><i class="fa fa-th"></i></a>
+              <li class="active">
+                <a href="#" class="active">
+                  <i class="fa fa-th"></i>
+                </a>
               </li>
             </ul>
           </div>
@@ -43,6 +49,11 @@
                       <span class="icon_heart_alt"></span>
                     </a>
                   </li>
+                  <li>
+                    <a href="#">
+                      <span class="arrow_expand"></span>
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -50,57 +61,28 @@
               <h2>{{item.name}}</h2>
               <h4 class="product-name">{{item.info}}</h4>
               <div class="price">
-                  {{item.price}} <del> $50 </del>
+                {{item.price}}
+                <del>$50</del>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="cart-item-list">
-        <div class="item-list" v-for="(item, index) in data1" :key="index">
-          <div class="single-item-list">
-            <div class="cart-product-image">
-              <img class="image-responsive" :src="item.thumbnail" />
-            </div>
-            <div class="product-info">
-              <h2>{{item.name}}</h2>
-              <h4 class="product-name">{{item.info}}</h4>
-              <div class="price">
-                  {{item.price}} <del> $50 </del>
-              </div>
-              <div class="actions">
-                <ul>
-                  <li>
-                    <a class="add-cart" href="#" @click="addProduct(item)">
-                      <span>
-                        <span class="icon_plus"></span>
-                      </span> add to cart
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <span class="icon_heart_alt"></span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
+        <cartItemList></cartItemList>
       </div>
     </div>
   </section>
 </template>
 
 <script>
-import Cart from '../components/Cart';
+import CartItemList from '../components/Cart-item-list'
 export default {
-  components: { Cart },
+  components: { CartItemList },
   data() {
     return {
       data1: [
         {
-          remove: require('~/assets/images/remove.png'),
           thumbnail: require('~/assets/images/01.jpg'),
           name: 'Grey Striped Shirt1',
           info: 'T-shir',
@@ -110,7 +92,6 @@ export default {
           subtotal: '$49'
         },
         {
-          remove: require('~/assets/images/remove.png'),
           thumbnail: require('~/assets/images/02.jpg'),
           name: 'Grey Striped Shirt2',
           info: 'T-shir',
@@ -120,7 +101,6 @@ export default {
           subtotal: '$48'
         },
         {
-          remove: require('~/assets/images/remove.png'),
           thumbnail: require('~/assets/images/03.jpg'),
           name: 'Grey Striped Shirt3',
           info: 'T-shir',
@@ -130,7 +110,6 @@ export default {
           subtotal: '$48'
         },
         {
-          remove: require('~/assets/images/remove.png'),
           thumbnail: require('~/assets/images/04.jpg'),
           name: 'Grey Striped Shirt4',
           info: 'T-shir',
@@ -140,7 +119,6 @@ export default {
           subtotal: '$48'
         },
         {
-          remove: require('~/assets/images/remove.png'),
           thumbnail: require('~/assets/images/05.jpg'),
           name: 'Grey Striped Shirt5',
           info: 'T-shir',
@@ -150,7 +128,6 @@ export default {
           subtotal: '$48'
         },
         {
-          remove: require('~/assets/images/remove.png'),
           thumbnail: require('~/assets/images/06.jpg'),
           name: 'Grey Striped Shirt6',
           info: 'T-shir',
@@ -173,7 +150,6 @@ export default {
 
 <style scoped>
 .contenedor {
-
 }
 .view-navigation {
   display: grid;
@@ -182,7 +158,7 @@ export default {
   margin: 0 0 30px;
   align-items: center;
 }
-.view-navigation .info-text{
+.view-navigation .info-text {
   display: block;
   float: left;
 }
@@ -190,7 +166,7 @@ p {
   margin-bottom: 20px;
   line-height: 30px;
   margin: 0 0 10px;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 14px;
 }
 .view-navigation .right-content {
@@ -219,7 +195,9 @@ p {
   text-align: center;
   width: 40px;
 }
-a, a:hover, a:focus {
+a,
+a:hover,
+a:focus {
   text-decoration: none;
   outline: none;
 }
@@ -235,20 +213,23 @@ i {
   color: inherit;
 }
 .fa-align-justify:before {
-  content: "\f039";
+  content: '\f039';
 }
-:after, :before {
+:after,
+:before {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.view-navigation .right-content .grid-list ul li a.active, .view-navigation .right-content .grid-list ul li a:hover {
+.view-navigation .right-content .grid-list ul li a.active,
+.view-navigation .right-content .grid-list ul li a:hover {
   color: #fda341;
 }
 .fa-th:before {
-  content: "\f00a";
+  content: '\f00a';
 }
-:after, :before {
+:after,
+:before {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -264,7 +245,7 @@ i {
   border: 1px solid #a8a8a8;
   color: #878787;
   cursor: pointer;
-  font-family: "Montserrat Light";
+  font-family: 'Montserrat Light';
   font-size: 10px;
   height: 41px;
   margin-left: 8px;
@@ -285,34 +266,47 @@ i {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
-.item{
+.item {
   display: flex;
   justify-content: center;
   color: #454545;
-  font: 14px "Open Sans", sans-serif;
+  font: 14px 'Open Sans', sans-serif;
   padding: 0px 15px;
 }
 .single-item {
-  padding-bottom: 68px;
+  filter: alpha(opacity=0);
+  filter: alpha(opacity=100);
+  padding-bottom: 48px;
 }
-.cart-product-image {
+.single-item .cart-product-image {
+  filter: alpha(opacity=0);
+  filter: alpha(opacity=100);
+  height: auto;
   position: relative;
 }
-.image-responsive{
+.image-responsive {
   width: 100%;
-  height: auto;
+  height: inherit;
   display: block;
+}
+.single-item .cart-product-image:hover .actions {
+  bottom: -1px;
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
 }
 .single-item .cart-product-image .actions {
   position: absolute;
   bottom: -8px;
   width: 100%;
-  -webkit-transition: -webkit-transform 0.25s, opacity 0.15s, bottom 0.20s;
-  transition: transform 0.25s, opacity 0.15s, bottom 0.20s;
+  -webkit-transition: -webkit-transform 0.25s, opacity 0.15s, bottom 0.2s;
+  transition: transform 0.25s, opacity 0.15s, bottom 0.2s;
   -webkit-transform: scale(0.5);
   -ms-transform: scale(0.5);
   transform: scale(0.8);
-  opacity: 1;
+  opacity: 0;
   filter: alpha(opacity=0);
   background-color: #202020;
 }
@@ -321,7 +315,7 @@ i {
   padding: 0px;
   list-style: none;
   overflow: hidden;
-  padding: 15px 0;
+  /* padding: 15px 0; */
 }
 .single-item .cart-product-image .actions ul li:first-child {
   width: 64%;
@@ -335,7 +329,7 @@ i {
   text-transform: uppercase;
   color: #ffffff;
   font-size: 10px;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   letter-spacing: 1px;
   text-decoration: none;
   outline: none;
@@ -344,11 +338,14 @@ i {
   display: block;
   padding: 15px 0;
 }
+.single-item .cart-product-image .actions ul li a:hover {
+  background-color: #323232;
+}
 .single-item .cart-product-image .actions ul li a.add-cart span {
   height: 15px;
 }
 .single-item .cart-product-image .actions ul li a span {
-  color: #CACACA;
+  color: #cacaca;
   font-size: 13px;
 }
 .single-item .cart-product-image .actions ul li a.add-cart span span {
@@ -360,7 +357,7 @@ i {
   height: 15px;
 }
 .single-item .cart-product-image .actions ul li a span {
-  color: #CACACA;
+  color: #cacaca;
   font-size: 13px;
 }
 .icon_plus {
@@ -374,9 +371,10 @@ i {
   -webkit-font-smoothing: antialiased;
 }
 .icon_plus:before {
-  content: "\4c";
+  content: '\4c';
 }
-:after, :before {
+:after,
+:before {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -386,11 +384,11 @@ i {
   float: left;
   text-align: center;
 } */
-.product-info {
+.single-item .product-info {
   text-align: left;
 }
-.product-info h2 {
-  font-family: "Raleway", sans-serif;
+.single-item .product-info h2 {
+  font-family: 'Raleway', sans-serif;
   font-size: 15px;
   margin: 21px 0 11px;
   color: #292929;
@@ -398,25 +396,26 @@ i {
   text-transform: capitalize;
   font-weight: 500;
 }
-.product-name {
+.single-item .product-name {
   font-size: 14px;
   color: #878787;
   text-transform: capitalize;
   margin-bottom: 13px;
+  font-family: 'Raleway', sans-serif;
 }
-.price {
+.single-item .price {
   font-size: 14px;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: #fda341;
   letter-spacing: 1px;
   font-weight: 300;
 }
-.price del {
+.single-item .price del {
   color: #cbcbcb;
   margin-left: 25px;
   margin-right: 0;
   font-weight: 300;
-  font-family: 'Montserrat Light';
+  font-family: 'Montserrat', sans-serif;
   font-size: 14px;
 }
 .icon_heart_alt {
@@ -429,21 +428,14 @@ i {
   line-height: 1;
   -webkit-font-smoothing: antialiased;
 }
-.single-item-list {
-  display: flex;
-  padding: 0px 0px 45px;
-  width: 100%;
-}
-.single-item-list .cart-product-image {
-  padding: 0px 12px 0px 0px;
-  width: 33.33333333%;
-}
-.single-item-list .cart-product-image .image-responsive {
-  width: 100%;
-  height: auto;
-}
-
-.single-item-list .product-info{
-  width: 66.66666667%;
+.arrow_expand {
+  font-family: 'ElegantIcons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
 }
 </style>
