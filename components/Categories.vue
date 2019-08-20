@@ -84,16 +84,35 @@ export default {
   padding: 0;
 }
 .container {
+  width: 1400;
   margin-bottom: 80px;
-  padding: 40px;
+  padding: 0px;
   padding-right: 15px;
   padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
   display: grid;
   grid-template-columns: 25% 1fr;
 }
+@media (min-width: 1200px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1250px;
+  }
+}
+
 .categories-container {
   margin-bottom: 60px;
-  padding: 0;
+  padding: 0 15px;
   max-width: 1200px;
   width: 100%;
   margin-right: auto;
