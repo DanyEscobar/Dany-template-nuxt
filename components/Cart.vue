@@ -151,12 +151,12 @@ export default {
           price: '$48',
           subtotal: '$48'
         }
-      ]
+      ],
     }
   },
   methods: {
     removeProduct(i) {
-      this.data.splice(i, 1)
+      this.data.splice(i, 1);
     }
   }
 }
