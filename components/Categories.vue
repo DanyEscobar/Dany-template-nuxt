@@ -1,6 +1,5 @@
 <template>
-  <section>
-    <nav>
+  <section class="container">
       <div class="categories-container">
         <h3 class="categories-title">Categories</h3>
         <div class="man" v-for="(nameCat, index) in dataName" :key="index">
@@ -18,12 +17,16 @@
           </div>
         </div>
       </div>
-    </nav>
+      <div class="cart-list">
+        <cartList></cartList>
+      </div>
   </section>
 </template>
 
 <script>
+import CartList from '../components/Cart-list'
 export default {
+  components: { CartList },
   data() {
     return {
       data: [
@@ -76,17 +79,44 @@ export default {
 </script>
 
 <style scoped>
-nav {
-  float: left;
-  position: relative;
-  min-height: 1px;
+* {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  width: 1400;
+  margin-bottom: 80px;
+  padding: 0px;
   padding-right: 15px;
   padding-left: 15px;
-  margin-right: 8%;
-  width: 20%;
+  margin-right: auto;
+  margin-left: auto;
+  display: grid;
+  grid-template-columns: 25% 1fr;
 }
+@media (min-width: 1200px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1250px;
+  }
+}
+
 .categories-container {
   margin-bottom: 60px;
+  padding: 0 15px;
+  max-width: 1200px;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
   width: 100%;
 }
 .categories-title {
@@ -94,8 +124,12 @@ nav {
   text-transform: uppercase;
   font-size: 13px;
   letter-spacing: 1px;
+  margin-bottom: 14px;
+  border-bottom: 2px solid #d3d3d3;
+  color: #292929;
+  padding-bottom: 10px;
 }
-.man-title {
+.man .man-title {
   background-color: transparent;
   border-bottom: 1px solid #a8a8a8;
   border-top: 0px solid #a8a8a8;
@@ -107,6 +141,7 @@ nav {
   color: #202020;
   text-transform: uppercase;
   font-size: 11px;
+  cursor: pointer;
 }
 .man-container {
   padding: 6px 22px 6px 14px;
@@ -118,6 +153,7 @@ nav {
 .man-ul {
   list-style: none;
   padding: 0px;
+  margin: 0px;
 }
 .a-option {
   background: #ffffff;
@@ -128,6 +164,9 @@ nav {
   padding: 10px 0 13px;
   text-decoration: none;
   outline: none;
+}
+.a-option:hover {
+  color: #fda341;
 }
 .a-option > span {
   float: right;

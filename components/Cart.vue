@@ -27,7 +27,7 @@
                 </td>
                 <td class="product-image">
                   <a href="#">
-                    <img :src="item.thumbnail" class="image-nor"/>
+                    <img :src="item.thumbnail" class="image-nor" />
                   </a>
                 </td>
                 <td class="product-info">
@@ -70,45 +70,45 @@
           </h5>
           <br />
           <div class="table">
-          <div class="product-cart" v-for="(item, index) in data" :key="index">
-            <div class="cart-product-remove">
-              <a
-                href="#"
-                class="cart-remove"
-                title="Quitar este producto"
-                @click="removeProduct(index)"
-              >
-                <img class="image-responsive-remove" :src="item.remove" alt="Quitar producto" />
-              </a>
-            </div>
-            <div class="cart-product-image">
-              <a href="#" class="a-responsive">
-                <img class="image-responsive" :src="item.thumbnail" />
-              </a>
-            </div>
-            <div class="cart-product-info">
-              <h5>{{item.name}}</h5>
-              <span>
-                <h6>{{item.info}}</h6>
-              </span>
-              <div class="cart-product-price">
-                <del>$80</del>
-                "{{item.price}}"
+            <div class="product-cart" v-for="(item, index) in data" :key="index">
+              <div class="cart-product-remove">
+                <a
+                  href="#"
+                  class="cart-remove"
+                  title="Quitar este producto"
+                  @click="removeProduct(index)"
+                >
+                  <img class="image-responsive-remove" :src="item.remove" alt="Quitar producto" />
+                </a>
               </div>
-              <div class="cart-product-delete">
-                <button class="product-delete" @click="removeProduct(index)">Delete</button>
+              <div class="cart-product-image">
+                <a href="#" class="a-responsive">
+                  <img class="image-responsive" :src="item.thumbnail" />
+                </a>
+              </div>
+              <div class="cart-product-info">
+                <h5>{{item.name}}</h5>
+                <span>
+                  <h6>{{item.info}}</h6>
+                </span>
+                <div class="cart-product-price">
+                  <del>$80</del>
+                  "{{item.price}}"
+                </div>
+                <div class="cart-product-delete">
+                  <button class="product-delete" @click="removeProduct(index)">Delete</button>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="order-total">
-            <h5>Order total</h5>
-          </div>
-          <div class="checkout">
-            <h4 class="total-price">
-              <span class="amount">$166</span>
-            </h4>
-            <button class="cart-checkout">Checkout</button>
-          </div>
+            <div class="order-total">
+              <h5 class="title-order">Order total</h5>
+            </div>
+            <div class="checkout">
+              <h4 class="total-price">
+                <span class="amount">$166</span>
+              </h4>
+              <button class="cart-checkout">Checkout</button>
+            </div>
           </div>
         </div>
       </div>
@@ -254,7 +254,6 @@ td.product-image img {
 
 th.product-name {
   color: #000000;
-  /* padding: 18px 0px 18px 172px; */
   padding-left: 20%;
 }
 
@@ -352,18 +351,55 @@ body {
   .version-responsive {
     display: initial;
   }
+  .cart {
+    padding: 0;
+  }
 }
 
-
 /* Cart Responsive */
+
+.cart-responsive {
+  min-width: 100%;
+  height: auto;
+  background-color: #fff;
+  padding: 20px;
+  padding-top: 20px;
+  /* box-shadow: 2px 5px 10px #ddd; */
+  top: 50px;
+  right: 50px;
+}
+.table {
+  border: 1px solid #a8a8a8;
+  border-collapse: collapse;
+  width: 100%;
+  display: table;
+}
 .product-cart {
   display: flex;
-  /*  display: inline-grid;
-  grid-template-columns: repeat(2, 50%);
-  grid-template-rows: auto; */
+  /* justify-content: space-around; */
+  align-items: center;
   border-bottom: 1px solid #999999;
   padding: 10px;
+  padding-bottom: 40px;
+  padding-top: 40px;
   width: 100%;
+}
+.order-total {
+  padding-left: 10px;
+  padding-top: 10px;
+  margin: 10px 0;
+}
+.cart-product-remove {
+  width: 20%;
+}
+.cart-remove {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.image-responsive-remove {
+  align-items: center;
+  align-content: center;
 }
 .cart-product-image {
   flex: 1;
@@ -371,12 +407,12 @@ body {
 }
 .a-responsive {
   width: 100%;
-  height: auto;
   display: flex;
 }
-
+.image-responsive {
+  width: auto;
+}
 .cart-product-info {
-  float: right;
   width: 34%;
   text-align: left;
   flex: 1;
@@ -387,6 +423,10 @@ h5 {
   font-family: 'Raleway', sans-serif;
   font-weight: 600;
 }
+.cart-product-delete {
+  text-align: left;
+  flex: 1;
+}
 .product-delete {
   color: #000;
   margin-top: 10px;
@@ -395,8 +435,7 @@ button {
   font-weight: lighter;
   display: inline-block;
   margin-top: 10px;
-  margin: 0 8px;
-  padding: 10px 20px;
+  padding: 10px 18px;
   background: none;
   border-radius: 0px;
   border: 1px solid #a8a8a8;
@@ -425,38 +464,24 @@ button:hover {
   top: 50px;
   right: 50px;
 }
-.table {
-  border: 1px solid #a8a8a8;
-  border-collapse: collapse;
+.title-order {
+  color: #292929;
 }
 .checkout {
+  padding: 10px 10px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
+
 .cart-checkout {
   color: #000;
-  float: right;
-  margin-top: 15px;
+  margin-top: -15px;
 }
 .total-price {
-  float: left;
+  width: auto;
+  height: auto;
   color: #000;
   font-size: 14px;
 }
-.cart-product-remove {
-  text-align: center;
-  width: 10%;
-  display: flex;
-  justify-content: center;
-}
-.cart-remove  {
-  justify-content: center;
-  display: flex;
-  align-items: center; 
-}
-.image-responsive-remove{
-  align-items: center;
-  align-content: center;
-}
-
 </style>
