@@ -18,7 +18,7 @@
           <div class="actions">
             <ul>
               <li>
-                <a class="add-cart" href="#" @click="addProduct(item)">
+                <a class="add-cart" href="#">
                   <span>
                     <span class="icon_plus"></span>
                   </span> add to cart
@@ -30,7 +30,7 @@
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="#" >
                   <span class="arrow_expand"></span>
                 </a>
               </li>
@@ -44,6 +44,7 @@
 
 <script>
 export default {
+  props: ['valor'],
   data() {
     return {
       data: [
