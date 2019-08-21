@@ -1,0 +1,1 @@
+https://code.tutsplus.com/es/tutorials/design-patterns-for-communication-between-vuejs-component--cms-32354
