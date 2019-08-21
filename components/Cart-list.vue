@@ -1,7 +1,6 @@
 <template>
   <section>
     <div class="contenedor">
-      {{$data.mostrar}}
       <div class="view-navigation">
         <div class="info-text">
           <p>Showing 1-1 from {{data1.length}} products</p>
@@ -10,12 +9,12 @@
           <div class="grid-list">
             <ul>
               <li>
-                <a href="#" @click="mostrar=true">
+                <a :class="!mostrar? 'active' : ''" @click="mostrarVista">
                   <i class="fa fa-align-justify"></i>
                 </a>
               </li>
               <li class="active">
-                <a href="#" class="active" @click="mostrar=false">
+                <a :class="mostrar? 'active' : ''" @click="mostrarVista2">
                   <i class="fa fa-th"></i>
                 </a>
               </li>
@@ -31,7 +30,7 @@
           </div>
         </div>
       </div>
-      <div class="cart-item">
+      <div class="cart-item" v-if="mostrar">
         <div class="item" v-for="(item, index) in data1" :key="index">
           <div class="single-item">
             <div class="cart-product-image">
@@ -51,7 +50,7 @@
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a @click="mostrarModal">
                       <span class="arrow_expand"></span>
                     </a>
                   </li>
@@ -69,7 +68,7 @@
           </div>
         </div>
       </div>
-      <div class="cart-item-list" v-if="mostrar">
+      <div class="cart-item-list" v-else>
         <cartItemList></cartItemList>
       </div>
     </div>
@@ -82,7 +81,7 @@ export default {
   components: { CartItemList },
   data() {
     return {
-      mostrar: false,
+      mostrar: true,
       data1: [
         {
           thumbnail: require('~/assets/images/01.jpg'),
@@ -137,13 +136,22 @@ export default {
           id: 'AFN - 924222122',
           price: '$48',
           subtotal: '$48'
-        },
+        }
       ]
     }
   },
   methods: {
     mostrarVista() {
-      this.$emit('click', this.mostrar != false)
+      this.mostrar = false
+    },
+    mostrarVista2() {
+      this.mostrar = true
+    },
+    mostrarModal() {
+      this.$emit('mostrarModal', true)
+    },
+    updateModal(newValue) {
+      this.modal1 = newValue
     }
   }
 }
@@ -201,6 +209,7 @@ a:hover,
 a:focus {
   text-decoration: none;
   outline: none;
+  cursor: pointer;
 }
 .fa {
   display: inline-block;
