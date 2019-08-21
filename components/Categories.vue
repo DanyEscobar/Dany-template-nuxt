@@ -1,19 +1,24 @@
 <template>
   <section class="container">
-    <div class="modal" v-if="false">
-      <p>imagen</p>
+    <div class="modal" v-if="modal1" @click="closeModal">
+      <figure class="wrapper-img">
+        <button title="Close" type="button" class="mfp-close" @click="closeModal">×</button>
+        <img class="mfp-img" src="../assets/images/01.jpg" style="max-height: 1330px;" />
+      </figure>
     </div>
     <div class="categories-container">
       <h3 class="categories-title">Categories</h3>
-      <div class="man" v-for="(nameCat, index) in dataName" :key="index">
+      {{$data.dataName[0].state}}A
+      {{$data.state}}B
+      <div class="man" v-for="(nameCat, index) in dataName" :key="index" @click="closeCategories">
         <h3 class="man-title">
           <span class="name-categorie">+</span>
           {{nameCat.nameCat}}
         </h3>
         <div class="man-container">
-          <ul class="man-ul">
+          <ul class="man-ul" v-if="state">
             <li v-for="(man, index) in data" :key="index">
-              <a href class="a-option">
+              <a href="#" class="a-option">
                 {{man.name}}
                 <span>{{man.amount}}</span>
               </a>
@@ -23,7 +28,7 @@
       </div>
     </div>
     <div class="cart-list">
-      <cartList></cartList>
+      <cartList @mostrarModal="updateModal"></cartList>
     </div>
   </section>
 </template>
@@ -34,6 +39,8 @@ export default {
   components: { CartList },
   data() {
     return {
+      modal1: false,
+      state: false,
       data: [
         {
           name: 'Loungewear',
@@ -73,11 +80,22 @@ export default {
         }
       ],
       dataName: [
-        { nameCat: 'Man' },
-        { nameCat: 'Woman' },
-        { nameCat: 'Kids' },
-        { nameCat: 'All Products' }
+        { nameCat: 'Man', state: true },
+        { nameCat: 'Woman', state: false },
+        { nameCat: 'Kids', state: false },
+        { nameCat: 'All Products', state: false }
       ]
+    }
+  },
+  methods: {
+    updateModal(newValue) {
+      this.modal1 = newValue
+    },
+    closeModal() {
+      this.modal1 = false
+    },
+    closeCategories() {
+      this.state = true
     }
   }
 }
@@ -104,21 +122,6 @@ export default {
   top: 0;
   left: 0;
   z-index: 99;
-}
-@media (min-width: 1200px) {
-  .container {
-    width: 750px;
-  }
-}
-@media (min-width: 1200px) {
-  .container {
-    width: 970px;
-  }
-}
-@media (min-width: 1200px) {
-  .container {
-    width: 1250px;
-  }
 }
 
 .categories-container {
@@ -200,5 +203,43 @@ export default {
 }
 .a-option > span {
   float: right;
+}
+img.mfp-img {
+  width: 100%;
+  display: block;
+}
+.wrapper-img {
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+  height: auto;
+  margin: 3% auto;
+}
+.mfp-close {
+  position: absolute;
+  top: -30px;
+  right: 0;
+  color: #fff;
+  background: transparent;
+  cursor: pointer;
+  border: 0;
+  font-size: 28px;
+  font-family: Arial, Baskerville, monospace;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1250px;
+  }
 }
 </style>
