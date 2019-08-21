@@ -30,7 +30,7 @@
                 </a>
               </li>
               <li>
-                <a href="#" >
+                <a @click="mostrarModal">
                   <span class="arrow_expand"></span>
                 </a>
               </li>
@@ -44,7 +44,6 @@
 
 <script>
 export default {
-  props: ['valor'],
   data() {
     return {
       data: [
@@ -115,6 +114,11 @@ export default {
             'Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.'
         }
       ]
+    }
+  },
+  methods: {
+    mostrarModal() {
+      this.$emit('mostrarModal', true)
     }
   }
 }
@@ -254,6 +258,7 @@ a:hover,
 a:focus {
   text-decoration: none;
   outline: none;
+  cursor: pointer;
 }
 a:hover {
   width: auto;
