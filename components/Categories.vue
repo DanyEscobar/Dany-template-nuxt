@@ -9,16 +9,15 @@
     <div class="categories-container">
       <h3 class="categories-title">Categories</h3>
       {{$data.dataName[0].state}}A
-      {{$data.state}}B
-      <div class="man" v-for="(nameCat, index) in dataName" :key="index" @click="closeCategories">
+      <div class="man" v-for="(nameCat, index) in dataName" :key="index" @click="ocCategories(index)" >
         <h3 class="man-title">
           <span class="name-categorie">+</span>
           {{nameCat.nameCat}}
         </h3>
         <div class="man-container">
-          <ul class="man-ul" v-if="state">
+          <ul class="man-ul" v-if="nameCat.state">
             <li v-for="(man, index) in data" :key="index">
-              <a href="#" class="a-option">
+              <a class="a-option">
                 {{man.name}}
                 <span>{{man.amount}}</span>
               </a>
@@ -40,7 +39,6 @@ export default {
   data() {
     return {
       modal1: false,
-      state: false,
       data: [
         {
           name: 'Loungewear',
@@ -89,14 +87,14 @@ export default {
   },
   methods: {
     updateModal(newValue) {
-      this.modal1 = newValue
+      this.modal = newValue
     },
     closeModal() {
-      this.modal1 = false
+      this.modalzsfgdsadfsdsdfdghjuytrgrftree3wsewsqaq1a = false
     },
-    closeCategories() {
-      this.state = true
-    }
+    ocCategories(i) {
+      this.dataName[i].state = !this.dataName[i].state
+    },
   }
 }
 </script>
@@ -200,6 +198,7 @@ export default {
 }
 .a-option:hover {
   color: #fda341;
+  cursor: pointer;
 }
 .a-option > span {
   float: right;
