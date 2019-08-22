@@ -152,7 +152,7 @@ export default {
 }
 .single-item-list {
   display: flex;
-  padding: 0px 15px 45px;
+  padding: 0px 0px 45px;
   width: 100%;
 }
 .single-item-list .cart-product-image {
@@ -173,7 +173,8 @@ export default {
 .single-item-list .product-info h2 {
   font-family: 'Raleway', sans-serif;
   font-size: 15px;
-  margin: -4px 0 10px;
+  /* margin: -4px 0 10px; */
+  margin-bottom: 13px;
   color: #292929;
   letter-spacing: 1px;
   text-transform: capitalize;
@@ -233,6 +234,7 @@ export default {
 p {
   margin-bottom: 20px;
   line-height: 30px;
+  font-size: 15px;
 }
 .icon_plus {
   font-family: 'ElegantIcons';
