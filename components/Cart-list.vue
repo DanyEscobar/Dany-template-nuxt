@@ -151,7 +151,7 @@ export default {
       this.$emit('mostrarModal', true)
     },
     updateModal(newValue) {
-      this.modal1 = newValue
+      this.modal = newValue
     }
   }
 }
