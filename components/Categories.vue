@@ -1,6 +1,6 @@
 <template>
   <section class="container">
-    <div class="modal" v-if="modal1" @click="closeModal">
+    <div class="modal" v-if="modal" @click="closeModal">
       <figure class="wrapper-img">
         <button title="Close" type="button" class="mfp-close" @click="closeModal">×</button>
         <img class="mfp-img" src="../assets/images/01.jpg" style="max-height: 1330px;" />
@@ -9,13 +9,15 @@
     <div class="categories-container">
       <h3 class="categories-title">Categories</h3>
       {{$data.dataName[0].state}}A
-      <div class="man" v-for="(nameCat, index) in dataName" :key="index" @click="ocCategories(index)" >
-        <h3 class="man-title">
-          <span class="name-categorie">+</span>
-          {{nameCat.nameCat}}
-        </h3>
-        <div class="man-container">
-          <ul class="man-ul" v-if="nameCat.state">
+      <div class="man" v-for="(nameCat, index) in dataName" :key="index"  >
+        <div class="man-head" @click="ocCategories(index)">
+          <h3 class="man-title">
+            <span class="name-categorie">+</span>
+            {{nameCat.nameCat}}
+          </h3>
+        </div>
+        <div class="man-container" v-if="nameCat.state">
+          <ul class="man-ul" >
             <li v-for="(man, index) in data" :key="index">
               <a class="a-option">
                 {{man.name}}
@@ -38,7 +40,7 @@ export default {
   components: { CartList },
   data() {
     return {
-      modal1: false,
+      modal: false,
       data: [
         {
           name: 'Loungewear',
@@ -90,7 +92,7 @@ export default {
       this.modal = newValue
     },
     closeModal() {
-      this.modalzsfgdsadfsdsdfdghjuytrgrftree3wsewsqaq1a = false
+      this.modal = false
     },
     ocCategories(i) {
       this.dataName[i].state = !this.dataName[i].state
