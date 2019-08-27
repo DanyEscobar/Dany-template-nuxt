@@ -1,1 +1,44 @@
 https://code.tutsplus.com/es/tutorials/design-patterns-for-communication-between-vuejs-component--cms-32354
+
+    <!-- <p>Min and max range slider</p> -->
+
+    <!-- <div>
+      <div>
+        <div class="px-4">
+          <input
+            v-model="data[0].range"
+            :max="data[0].max"
+            :min="data[0].min"
+            hide-details
+            class="align-center"
+          />
+          <div>
+            <input
+              v-model="data[0].range[0]"
+              class="mt-0 pt-0"
+              hide-details
+              single-line
+              type="number"
+              style="width: 60px"
+            />
+          </div>
+          <div>
+            <input
+              v-model="data[0].range[1]"
+              class="mt-0 pt-0"
+              hide-details
+              single-line
+              type="number"
+              style="width: 60px"
+            />
+          </div>
+        </div>
+      </div>
+    </div>-->
+
+    <!-- <div class="block">
+      <el-slider v-model="data[0].range" range :max="data[0].max" :min="data[0].min"></el-slider>
+    </div>-->
+
+https://github.com/xwpongithub/vue-range-slider
+https://github.com/soanvig/jsr
