@@ -33,12 +33,16 @@ module.exports = {
   css: [
     'element-ui/lib/theme-chalk/index.css',
     './assets/css/eleganticon.css',
-    './assets/css/font-awesome.min.css'
+    './assets/css/font-awesome.min.css',
+    'vue-range-component/dist/vue-range-slider.css'
   ],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['@/plugins/element-ui'],
+  plugins: [
+    '@/plugins/element-ui',
+    { src: '@/plugins/vue-range-slider', ssr: false }
+  ],
   /*
    ** Nuxt.js dev-modules
    */
