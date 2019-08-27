@@ -7,25 +7,30 @@
       </figure>
     </div>
     <div class="categories-container">
-      <h3 class="categories-title">Categories</h3>
-      {{$data.dataName[0].state}}A
-      <div class="man" v-for="(nameCat, index) in dataName" :key="index"  >
-        <div class="man-head" @click="ocCategories(index)">
-          <h3 class="man-title">
-            <span class="name-categorie">+</span>
-            {{nameCat.nameCat}}
-          </h3>
+      <div class="widget-categories">
+        <h3 class="categories-title">Categories</h3>
+        <!-- {{$data.dataName[0].state}}A -->
+        <div class="man" v-for="(nameCat, index) in dataName" :key="index">
+          <div class="man-head" @click="ocCategories(index)">
+            <h3 class="man-title">
+              <span class="name-categorie">+</span>
+              {{nameCat.nameCat}}
+            </h3>
+          </div>
+          <div class="man-container" v-if="nameCat.state">
+            <ul class="man-ul">
+              <li v-for="(man, index) in data" :key="index">
+                <a class="a-option">
+                  {{man.name}}
+                  <span>{{man.amount}}</span>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="man-container" v-if="nameCat.state">
-          <ul class="man-ul" >
-            <li v-for="(man, index) in data" :key="index">
-              <a class="a-option">
-                {{man.name}}
-                <span>{{man.amount}}</span>
-              </a>
-            </li>
-          </ul>
-        </div>
+      </div>
+      <div class="widget-price">
+        <cartSliderRange></cartSliderRange>
       </div>
     </div>
     <div class="cart-list">
@@ -36,8 +41,9 @@
 
 <script>
 import CartList from '../components/Cart-list'
+import CartSliderRange from '../components/Cart-slider-range'
 export default {
-  components: { CartList },
+  components: { CartList, CartSliderRange },
   data() {
     return {
       modal: false,
@@ -96,7 +102,7 @@ export default {
     },
     ocCategories(i) {
       this.dataName[i].state = !this.dataName[i].state
-    },
+    }
   }
 }
 </script>
@@ -125,13 +131,18 @@ export default {
 }
 
 .categories-container {
-  margin-bottom: 60px;
   padding: 0 15px;
   max-width: 1200px;
   width: 100%;
   margin-right: auto;
   margin-left: auto;
   width: 100%;
+}
+.widget-categories {
+  margin-bottom: 60px;
+}
+.widget-price {
+  margin-bottom: 60px;
 }
 
 /* .categories-container .man .man-container li a {
@@ -144,7 +155,7 @@ export default {
   transform: all 0.2s ease 0s;
 } */
 .categories-title {
-  font-family: 'Montserrat Semi Bold';
+  font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
   font-size: 13px;
   letter-spacing: 1px;
