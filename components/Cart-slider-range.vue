@@ -6,7 +6,8 @@
         :bg-style="bgStyle"
         :tooltip-style="tooltipStyle"
         :process-style="processStyle"
-        v-model="value"
+        :dot-color="dot"
+        v-model="value" :min="min" :max="max" :height="height"
       ></vue-range-slider>
     </div>
     <!-- <div
@@ -72,16 +73,34 @@
 </template>
 
 <script>
+import NoSSR from 'vue-no-ssr'
 // import 'vue-range-component/dist/vue-range-slider.css'
 // import VueRangeSlider from 'vue-range-component'
 export default {
   data() {
     return {
       // data: [{ min: 10, max: 500, slider: 1, range: [30, 150] }],
-      value: [0, 100]
+      value: [80, 225]
     }
   },
-  methods: {}
+  methods: {},
+  created() {
+    this.dot = {backgroundColor: 'black'}
+    this.height = 12
+    this.min = 10
+    this.max = 500
+    this.bgStyle = {
+    //  backgroundColor: '#fff',
+    //  boxShadow: 'inset 0.5px 0.5px 3px 1px rgba(0,0,0,.36)'
+    }
+    this.tooltipStyle = {
+      backgroundColor: '#666',
+      borderColor: '#666'
+    }
+    this.processStyle = {
+      backgroundColor: '#fda341'
+    }
+  }
 }
 </script>
 

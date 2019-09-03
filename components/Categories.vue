@@ -32,6 +32,9 @@
       <div class="widget-price">
         <cartSliderRange></cartSliderRange>
       </div>
+      <div class="widget-popular">
+        <cartPopular></cartPopular>
+      </div>
     </div>
     <div class="cart-list">
       <cartList @mostrarModal="updateModal"></cartList>
@@ -40,10 +43,11 @@
 </template>
 
 <script>
+import CartPopular from '../components/Cart-popular'
 import CartList from '../components/Cart-list'
 import CartSliderRange from '../components/Cart-slider-range'
 export default {
-  components: { CartList, CartSliderRange },
+  components: { CartList, CartSliderRange, CartPopular },
   data() {
     return {
       modal: false,
